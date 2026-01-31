@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Category extends Model
 {
     use softDeletes;
 
     protected $fillable = [
-        'role_name',
+        'cat_name',
         'description',
         'created_at',
         'updated_at',
@@ -17,8 +17,8 @@ class Role extends Model
 
     protected $dates = ['deleted_at'];
 
-    public function users()
+    public function items()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Item::class);
     }
 }
